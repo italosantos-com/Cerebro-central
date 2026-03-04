@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": [
+    "node_modules",
+    "src/app/api/genkit.disabled/**",
+    "src/firebase-genkit/**",
+    "firebase-genkit/**",
+    "**/*.disabled/**",
+    "**/*.test.*",
+    "**/*.spec.*"
+  ]
+}

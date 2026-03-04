@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>423019559653-ormi1vvfocrn9rn7vc2v7al73675ah0m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.423019559653-ormi1vvfocrn9rn7vc2v7al73675ah0m</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8E9iDJSu0S530zU1FIxSCLd4gZvtk0Kw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>423019559653</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ios-italosantos-com</string>
+	<key>PROJECT_ID</key>
+	<string>projeto-italo-bc5ef</string>
+	<key>STORAGE_BUCKET</key>
+	<string>projeto-italo-bc5ef.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:423019559653:ios:f019eab6f7f7090cfaf20c</string>
+	<key>DATABASE_URL</key>
+	<string>https://projeto-italo-bc5ef-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

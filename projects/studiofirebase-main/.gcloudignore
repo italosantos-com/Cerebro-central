@@ -1,0 +1,22 @@
+# Files and directories to skip when uploading to Cloud Build
+.git
+.gitignore
+node_modules
+npm-debug.log
+README.md
+.next
+.DS_Store
+*.log
+.vscode
+.idea
+coverage
+dist
+build
+.cache
+*.md
+docs
+tests
+__tests__
+*.test.*
+*.spec.*
+.github

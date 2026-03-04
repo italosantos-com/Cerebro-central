@@ -1,0 +1,255 @@
+{
+  "generatedAt": "2026-02-01T00:48:36.217Z",
+  "seed": "2026-01-31",
+  "pages": [
+    {
+      "route": "/admin",
+      "file": "src/app/admin/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/admins",
+      "file": "src/app/admin/admins/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/chat",
+      "file": "src/app/admin/chat/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/chat-management",
+      "file": "src/app/admin/chat-management/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/chat/[chatId]",
+      "file": "src/app/admin/chat/[chatId]/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/cloudflare-chat-info",
+      "file": "src/app/admin/cloudflare-chat-info/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/conversations",
+      "file": "src/app/admin/conversations/page.tsx",
+      "tabs": [
+        {
+          "value": "unified",
+          "label": "Chat Unificado (Multi-Canal)"
+        },
+        {
+          "value": "legacy",
+          "label": "Chat do Site (Legacy)"
+        }
+      ]
+    },
+    {
+      "route": "/admin/database-health",
+      "file": "src/app/admin/database-health/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/email-changed",
+      "file": "src/app/admin/email-changed/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/exclusive-content",
+      "file": "src/app/admin/exclusive-content/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/forgot-password",
+      "file": "src/app/admin/forgot-password/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/fotos",
+      "file": "src/app/admin/fotos/page.tsx",
+      "tabs": [
+        {
+          "value": "upload",
+          "label": "Upload de Arquivo"
+        },
+        {
+          "value": "link",
+          "label": "Link Externo"
+        }
+      ]
+    },
+    {
+      "route": "/admin/integrations",
+      "file": "src/app/admin/integrations/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/menu-conteudo",
+      "file": "src/app/admin/menu-conteudo/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/mfa-enabled",
+      "file": "src/app/admin/mfa-enabled/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/photos",
+      "file": "src/app/admin/photos/page.tsx",
+      "tabs": [
+        {
+          "value": "upload",
+          "label": "Upload de Arquivo"
+        },
+        {
+          "value": "link",
+          "label": "Link Externo"
+        }
+      ]
+    },
+    {
+      "route": "/admin/products",
+      "file": "src/app/admin/products/page.tsx",
+      "tabs": [
+        {
+          "value": "upload",
+          "label": "Upload de Vídeo"
+        },
+        {
+          "value": "link",
+          "label": "Link Externo"
+        }
+      ]
+    },
+    {
+      "route": "/admin/profile",
+      "file": "src/app/admin/profile/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/recaptcha-health",
+      "file": "src/app/admin/recaptcha-health/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/register",
+      "file": "src/app/admin/register/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/reset-password",
+      "file": "src/app/admin/reset-password/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/reviews",
+      "file": "src/app/admin/reviews/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/settings",
+      "file": "src/app/admin/settings/page.tsx",
+      "tabs": [
+        {
+          "value": "contact",
+          "label": "Contato"
+        },
+        {
+          "value": "general",
+          "label": "Geral"
+        },
+        {
+          "value": "images",
+          "label": "Imagens"
+        },
+        {
+          "value": "reviews",
+          "label": "Avaliações"
+        },
+        {
+          "value": "payment",
+          "label": "Pagamento"
+        },
+        {
+          "value": "appearance",
+          "label": "Personalização"
+        }
+      ]
+    },
+    {
+      "route": "/admin/subscribers",
+      "file": "src/app/admin/subscribers/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/subscriptions",
+      "file": "src/app/admin/subscriptions/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/updates",
+      "file": "src/app/admin/updates/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/uploads",
+      "file": "src/app/admin/uploads/page.tsx",
+      "tabs": [
+        {
+          "value": "direct",
+          "label": "Upload Direto Upload"
+        },
+        {
+          "value": "link",
+          "label": "Importar Link Link"
+        },
+        {
+          "value": "all",
+          "label": "Todos"
+        },
+        {
+          "value": "exclusive",
+          "label": "Exclusivo"
+        },
+        {
+          "value": "photos",
+          "label": "Fotos"
+        },
+        {
+          "value": "videos",
+          "label": "Vídeos"
+        },
+        {
+          "value": "storage",
+          "label": "Storage"
+        }
+      ]
+    },
+    {
+      "route": "/admin/verify-email",
+      "file": "src/app/admin/verify-email/page.tsx",
+      "tabs": []
+    },
+    {
+      "route": "/admin/videos",
+      "file": "src/app/admin/videos/page.tsx",
+      "tabs": [
+        {
+          "value": "upload",
+          "label": "Upload de Arquivo"
+        },
+        {
+          "value": "link",
+          "label": "Link Externo"
+        }
+      ]
+    },
+    {
+      "route": "/admin/whatsapp",
+      "file": "src/app/admin/whatsapp/page.tsx",
+      "tabs": []
+    }
+  ]
+}

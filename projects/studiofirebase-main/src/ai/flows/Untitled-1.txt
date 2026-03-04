@@ -1,0 +1,2 @@
+ $env:Path = "$env:USERPROFILE\scoop\apps\nodejs\current;" + 
+$env:Path; & scoop git install git add . git commit -m "lnk" git push

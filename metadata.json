@@ -1,0 +1,5 @@
+{
+  "name": "MiniCopilot Offline",
+  "description": "A local AI coding assistant and chat manager optimized for offline development using Ollama.",
+  "requestFramePermissions": []
+}

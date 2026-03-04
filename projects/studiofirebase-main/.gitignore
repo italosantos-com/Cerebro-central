@@ -1,0 +1,146 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+.next/
+out/
+dist/
+**/dist/
+build/
+
+# Production build
+/build
+
+# Misc
+.DS_Store
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+firestore-debug.log
+*.log
+
+# Build logs/history (local)
+logs/*.out
+logs/*.err
+build_output.txt
+
+# Local env files
+
+.env.local
+.env.*.local
+
+.env.private
+.env.docker
+.env.development
+.env.production
+
+# Playwright (local browser profiles, reports)
+.playwright-admin-session/
+playwright-report/
+test-results/
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OpenAPI Generated files (if you generate SDKs from specs)
+# Keep the spec files but ignore generated code
+# src/generated/
+# openapi/generated/
+
+# IDX / Project IDX
+.idx/
+
+# Firebase
+
+.firebase/
+.firebase*/
+
+firebase-debug.log
+firebase-debug.*.log
+.genkit/
+firebase-genkit/
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python virtual environments/caches in subfolders
+**/.venv*/
+**/venv/
+**/env/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets & Credentials
+secrets/
+secrets/*.txt
+
+# Firebase Admin SDK service accounts / keys
+service_account.json
+service_accounts_key.json
+*service_account*.json
+*service-accounts*.json
+
+GoogleService-Info.plist
+
+# Certificates & Keys (Apple Pay, SSL, etc)
+certs/
+*.p8
+*.p12
+*.pem
+*.key
+*.crt
+*.cer
+*.csr
+
+
+# Build outputs
+build-log.txt
+build-output.log
+cloudbuild-*.log
+deploy-pid.txt
+
+# Google Cloud SDK
+google-cloud-sdk/
+
+# MCP Servers (Model Context Protocol)
+mcp-servers/
+**/mcp-servers/**
+
+# Cloudflare
+cloudflared
+
+# Reports
+reports/
+
+# Modified files tracking
+.modified
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp

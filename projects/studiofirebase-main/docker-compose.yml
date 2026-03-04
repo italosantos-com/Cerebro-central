@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: italosantos-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: italosantos
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: italosantos-app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/italosantos
+      # Prisma usa POSTGRES_URL em prisma/schema.prisma
+      POSTGRES_URL: postgresql://postgres:postgres@db:5432/italosantos
+    ports:
+      - "3000:8080"
+    env_file:
+      - .env.local
+
+volumes:
+  postgres_data:
