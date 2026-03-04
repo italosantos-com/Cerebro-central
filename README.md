@@ -119,6 +119,7 @@ Use um dos formatos abaixo e rode:
 Formatos aceitos:
 
 - `.json` com `[{"question":"...","answer":"..."}]`
+- `.json` com `{"examples":[{"question":"...","answer":"..."}]}` (ex: `learning.json`/export offline)
 - `.jsonl` (1 JSON por linha com `question` e `answer`)
 - `.csv` com colunas `question,answer`
 - `.txt` ou `.md` com linhas `pergunta => resposta`
