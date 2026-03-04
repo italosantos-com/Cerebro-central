@@ -182,11 +182,12 @@ def _parse_json_like(file_path: Path, question_field: str, answer_field: str) ->
         if isinstance(payload, list):
             append_from_list(payload)
         elif isinstance(payload, dict):
-            normalized = _normalize_record(payload, question_field, answer_field)
-            if normalized:
-                records.append(normalized)
             if isinstance(payload.get("examples"), list):
                 append_from_list(payload["examples"])
+            else:
+                normalized = _normalize_record(payload, question_field, answer_field)
+                if normalized:
+                    records.append(normalized)
             learning_store = payload.get("learningStore")
             if isinstance(learning_store, dict) and isinstance(learning_store.get("examples"), list):
                 append_from_list(learning_store["examples"])
