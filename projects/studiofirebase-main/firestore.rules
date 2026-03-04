@@ -74,6 +74,39 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Brain collections - AI knowledge base and behavioral data
+    // Subcollections: /brain/{section}/items/{itemId}
+    match /brain/{section} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+
+      match /items/{itemId} {
+        allow read: if request.auth != null;
+        allow write: if isAdmin();
+      }
+    }
+
+    // Per-profile brain customization
+    match /profiles/{profileId}/brain/{section}/items/{itemId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+
+    // Conversations saved by brain API (server-side write via Admin SDK)
+    // Clients can read their own conversations; admins can read/write all
+    match /conversations/{conversationId} {
+      allow read: if request.auth != null && (
+        resource.data.uid == request.auth.uid || isAdmin()
+      );
+      allow write: if isAdmin();
+    }
+
+    // Per-user brain customization
+    match /users/{userId}/brain_custom/{docId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if isAdmin();
+    }
+
     // Generic rule for all other collections.
     // SuperAdmin gets full access.
     // Regular admins get access to an allowlist of collections.

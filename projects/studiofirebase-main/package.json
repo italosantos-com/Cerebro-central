@@ -24,7 +24,8 @@
     "genkit:init": "bash scripts/init-gemini.sh",
     "genkit:dev": "genkit start",
     "genkit:dev:with-env": "GENKIT_DEV=true npm run dev",
-    "ai:brain": "node -e 'const { centralAssistantBrain } = require(\"./genkit-flow.js\"); centralAssistantBrain.run({ question: process.argv[1] || \"Olá\" }).then(r => console.log(r)).catch(err => console.error(err))'"
+    "ai:brain": "node -e 'const { centralAssistantBrain } = require(\"./genkit-flow.js\"); centralAssistantBrain.run({ question: process.argv[1] || \"Olá\" }).then(r => console.log(r)).catch(err => console.error(err))'",
+    "brain:seed": "node scripts/seed-brain-firestore.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.888.0",

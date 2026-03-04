@@ -1,0 +1,50 @@
+[
+  {
+    "id": "kb_001",
+    "content": "Pagamento aceito via PIX e cartão.",
+    "category": "pagamento",
+    "priority": 1
+  },
+  {
+    "id": "kb_002",
+    "content": "Atendimento somente com horário marcado.",
+    "category": "agenda",
+    "priority": 2
+  },
+  {
+    "id": "kb_003",
+    "content": "Cancelamentos devem ser feitos com pelo menos 2 horas de antecedência.",
+    "category": "agenda",
+    "priority": 3
+  },
+  {
+    "id": "kb_004",
+    "content": "Reembolso disponível apenas em caso de cancelamento com mais de 24 horas de antecedência.",
+    "category": "pagamento",
+    "priority": 4
+  },
+  {
+    "id": "kb_005",
+    "content": "Atendimento presencial e remoto disponíveis conforme combinado.",
+    "category": "modalidade",
+    "priority": 5
+  },
+  {
+    "id": "kb_006",
+    "content": "Conteúdo exclusivo liberado apenas após confirmação de pagamento.",
+    "category": "conteudo",
+    "priority": 1
+  },
+  {
+    "id": "kb_007",
+    "content": "Horários disponíveis de segunda a sábado, sujeitos à agenda.",
+    "category": "agenda",
+    "priority": 6
+  },
+  {
+    "id": "kb_008",
+    "content": "Sigilo e discrição garantidos em todos os atendimentos.",
+    "category": "privacidade",
+    "priority": 1
+  }
+]
