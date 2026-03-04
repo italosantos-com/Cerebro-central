@@ -1,0 +1,38 @@
+[
+  {
+    "id": "kb_001",
+    "content": "Pagamento aceito via PIX e cartão.",
+    "category": "pagamento",
+    "priority": 1
+  },
+  {
+    "id": "kb_002",
+    "content": "Atendimento somente com horário marcado.",
+    "category": "agenda",
+    "priority": 2
+  },
+  {
+    "id": "kb_003",
+    "content": "Confirmação de agendamento somente após comprovante de pagamento.",
+    "category": "pagamento",
+    "priority": 1
+  },
+  {
+    "id": "kb_004",
+    "content": "Atendimento presencial e online disponíveis conforme agenda.",
+    "category": "agenda",
+    "priority": 3
+  },
+  {
+    "id": "kb_005",
+    "content": "Cancelamento com reembolso apenas com aviso de 24h de antecedência.",
+    "category": "politica",
+    "priority": 2
+  },
+  {
+    "id": "kb_006",
+    "content": "Sigilo absoluto garantido em todos os atendimentos.",
+    "category": "privacidade",
+    "priority": 1
+  }
+]
