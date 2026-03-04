@@ -74,6 +74,43 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Brain global datasets — admin write, authenticated read
+    match /brain/{layer} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+
+      match /{subDoc=**} {
+        allow read: if request.auth != null;
+        allow write: if isAdmin();
+      }
+    }
+
+    // Per-profile brain customisation
+    match /profiles/{profileId}/brain/{layer} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+
+      match /{subDoc=**} {
+        allow read: if request.auth != null;
+        allow write: if isAdmin();
+      }
+    }
+
+    // Per-user brain customisation — user can read/write their own
+    match /users/{userId}/brain_custom {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if isAdmin();
+    }
+
+    // Payments — user can read their own, admin has full access
+    match /payments/{paymentId} {
+      allow read: if request.auth != null && (
+        resource.data.uid == request.auth.uid || isAdmin()
+      );
+      allow create: if request.auth != null;
+      allow update, delete: if isAdmin();
+    }
+
     // Generic rule for all other collections.
     // SuperAdmin gets full access.
     // Regular admins get access to an allowlist of collections.

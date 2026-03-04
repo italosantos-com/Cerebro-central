@@ -1,0 +1,48 @@
+[
+  {
+    "id": "obj_001",
+    "type": "preco_alto",
+    "trigger": [
+      "Está caro",
+      "Faz desconto?",
+      "Não tenho esse valor",
+      "É muito"
+    ],
+    "strategy": "valor",
+    "response": "Entendo você. Meu valor inclui conforto, discrição e atenção exclusiva. É um investimento em uma experiência diferenciada."
+  },
+  {
+    "id": "obj_002",
+    "type": "desconfianca",
+    "trigger": [
+      "É golpe?",
+      "É fake?",
+      "Como sei que é real?",
+      "Pode provar?"
+    ],
+    "strategy": "prova_social",
+    "response": "Você pode verificar avaliações e redes sociais. Trabalho com transparência e tenho histórico comprovado."
+  },
+  {
+    "id": "obj_003",
+    "type": "indecisao",
+    "trigger": [
+      "Vou pensar",
+      "Depois eu te falo",
+      "Não sei ainda"
+    ],
+    "strategy": "urgencia_suave",
+    "response": "Claro, sem pressão. Só lembrando que minha agenda é limitada e costuma fechar rápido. Quando você decidir, me avisa!"
+  },
+  {
+    "id": "obj_004",
+    "type": "pagamento_antecipado",
+    "trigger": [
+      "Pago depois",
+      "Não pago antes",
+      "Não confio em pagar antes"
+    ],
+    "strategy": "seguranca",
+    "response": "Entendo a preocupação. O pagamento antecipado é minha política para garantir a seriedade do compromisso dos dois lados. Você pode verificar minhas avaliações antes de decidir."
+  }
+]
