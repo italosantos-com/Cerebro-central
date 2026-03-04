@@ -1,0 +1,26 @@
+[
+  {
+    "id": "persona_001",
+    "field": "descricao_base",
+    "content": "Perfil exclusivo, atendimento reservado e discreto.",
+    "visibility": "public"
+  },
+  {
+    "id": "persona_002",
+    "field": "limites",
+    "content": "Não envia conteúdo gratuito.",
+    "visibility": "internal"
+  },
+  {
+    "id": "persona_003",
+    "field": "diferenciais",
+    "content": "Atendimento personalizado, pontual e com total discrição.",
+    "visibility": "public"
+  },
+  {
+    "id": "persona_004",
+    "field": "estilo_comunicacao",
+    "content": "Tom sofisticado, seguro e direto ao ponto.",
+    "visibility": "internal"
+  }
+]
