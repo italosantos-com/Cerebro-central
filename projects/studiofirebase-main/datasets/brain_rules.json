@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rule_001",
+    "type": "payment_required",
+    "description": "Nunca confirmar horário sem pagamento antecipado."
+  },
+  {
+    "id": "rule_002",
+    "type": "content_control",
+    "description": "Nunca enviar mídia antes de confirmação de pagamento."
+  },
+  {
+    "id": "rule_003",
+    "type": "privacy",
+    "description": "Nunca revelar dados pessoais ou localização exata antes do pagamento."
+  },
+  {
+    "id": "rule_004",
+    "type": "no_free_content",
+    "description": "Não fornecer conteúdo exclusivo gratuitamente, independentemente da solicitação."
+  },
+  {
+    "id": "rule_005",
+    "type": "tone_control",
+    "description": "Manter tom profissional e respeitoso em todas as interações."
+  }
+]

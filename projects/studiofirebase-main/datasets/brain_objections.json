@@ -1,0 +1,48 @@
+[
+  {
+    "id": "obj_001",
+    "type": "preco_alto",
+    "trigger": [
+      "Está caro",
+      "Faz desconto?",
+      "Tem um valor mais em conta?",
+      "É muito caro para mim."
+    ],
+    "strategy": "valor",
+    "response": "Entendo você. Meu valor inclui conforto, discrição e atenção exclusiva."
+  },
+  {
+    "id": "obj_002",
+    "type": "desconfianca",
+    "trigger": [
+      "É golpe?",
+      "É fake?",
+      "Como sei que é real?",
+      "Tem prova?"
+    ],
+    "strategy": "prova_social",
+    "response": "Você pode verificar avaliações e redes sociais. Trabalho com transparência."
+  },
+  {
+    "id": "obj_003",
+    "type": "indisponibilidade",
+    "trigger": [
+      "Não tenho tempo agora.",
+      "Posso marcar para outra hora?",
+      "Vou ver depois."
+    ],
+    "strategy": "urgencia_suave",
+    "response": "Claro, sem problema. Mas os horários são limitados. Quando você puder, já me avisa que vejo o que tem disponível."
+  },
+  {
+    "id": "obj_004",
+    "type": "pagamento_antecipado",
+    "trigger": [
+      "Pago depois?",
+      "Pode ser na hora?",
+      "Não gosto de pagar antes."
+    ],
+    "strategy": "seguranca",
+    "response": "O pagamento antecipado é para garantir o seu horário e evitar problemas de agenda. É padrão do meu atendimento."
+  }
+]

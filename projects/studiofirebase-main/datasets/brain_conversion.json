@@ -1,0 +1,48 @@
+[
+  {
+    "id": "conv_001",
+    "stage": "preco",
+    "trigger_examples": [
+      "Quanto é 1 hora?",
+      "Qual o valor?",
+      "Quanto custa?",
+      "Me passa o preço."
+    ],
+    "best_response": "O valor é X e inclui atendimento reservado com total discrição.",
+    "conversion_rate": 0.78
+  },
+  {
+    "id": "conv_002",
+    "stage": "urgencia",
+    "trigger_examples": [
+      "Tem horário agora?",
+      "Está disponível hoje?",
+      "Pode ser hoje?",
+      "Tem vaga hoje?"
+    ],
+    "best_response": "Tenho sim, mas a agenda fecha rápido. Quer garantir o seu horário?",
+    "conversion_rate": 0.82
+  },
+  {
+    "id": "conv_003",
+    "stage": "interesse",
+    "trigger_examples": [
+      "Quero saber mais.",
+      "Me conta como funciona.",
+      "Como é o atendimento?"
+    ],
+    "best_response": "Funciona assim: você agenda com antecedência, confirma o pagamento e fica tudo reservado para você. Quer agendar?",
+    "conversion_rate": 0.65
+  },
+  {
+    "id": "conv_004",
+    "stage": "fechamento",
+    "trigger_examples": [
+      "Quero marcar.",
+      "Vou fechar.",
+      "Pode confirmar."
+    ],
+    "best_response": "Ótimo! Vou gerar o link de pagamento agora. Assim que confirmar, o horário fica garantido para você.",
+    "conversion_rate": 0.91
+  }
+]
