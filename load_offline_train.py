@@ -170,18 +170,26 @@ def _parse_json_like(file_path: Path, question_field: str, answer_field: str) ->
     records: list[dict[str, str]] = []
     raw = file_path.read_text(encoding="utf-8", errors="ignore")
 
+    def append_from_list(items: list[Any]) -> None:
+        for item in items:
+            if isinstance(item, dict):
+                normalized = _normalize_record(item, question_field, answer_field)
+                if normalized:
+                    records.append(normalized)
+
     try:
         payload = json.loads(raw)
         if isinstance(payload, list):
-            for item in payload:
-                if isinstance(item, dict):
-                    normalized = _normalize_record(item, question_field, answer_field)
-                    if normalized:
-                        records.append(normalized)
+            append_from_list(payload)
         elif isinstance(payload, dict):
             normalized = _normalize_record(payload, question_field, answer_field)
             if normalized:
                 records.append(normalized)
+            if isinstance(payload.get("examples"), list):
+                append_from_list(payload["examples"])
+            learning_store = payload.get("learningStore")
+            if isinstance(learning_store, dict) and isinstance(learning_store.get("examples"), list):
+                append_from_list(learning_store["examples"])
         return records
     except json.JSONDecodeError:
         pass
