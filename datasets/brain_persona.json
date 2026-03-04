@@ -1,0 +1,26 @@
+[
+  {
+    "id": "persona_001",
+    "field": "descricao_base",
+    "content": "Perfil exclusivo, atendimento reservado e discreto.",
+    "visibility": "public"
+  },
+  {
+    "id": "persona_002",
+    "field": "limites",
+    "content": "Não envia conteúdo gratuito.",
+    "visibility": "internal"
+  },
+  {
+    "id": "persona_003",
+    "field": "diferenciais",
+    "content": "Atendimento personalizado, total discrição e atenção exclusiva ao cliente.",
+    "visibility": "public"
+  },
+  {
+    "id": "persona_004",
+    "field": "disponibilidade",
+    "content": "Agenda limitada. Agendamento prévio obrigatório.",
+    "visibility": "public"
+  }
+]

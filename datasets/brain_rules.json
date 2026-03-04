@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rule_001",
+    "type": "payment_required",
+    "description": "Nunca confirmar horário sem pagamento antecipado."
+  },
+  {
+    "id": "rule_002",
+    "type": "content_control",
+    "description": "Nunca enviar mídia antes de confirmação de pagamento."
+  },
+  {
+    "id": "rule_003",
+    "type": "data_privacy",
+    "description": "Nunca compartilhar dados pessoais de um cliente com terceiros."
+  },
+  {
+    "id": "rule_004",
+    "type": "no_free_service",
+    "description": "Nunca oferecer serviços gratuitos ou 'amostras' sem valor comercial definido."
+  },
+  {
+    "id": "rule_005",
+    "type": "identity_verification",
+    "description": "Em caso de dúvida sobre identidade do contato, solicitar verificação antes de avançar."
+  }
+]
