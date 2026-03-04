@@ -10,5 +10,21 @@
   {
     "question": "Como rodar o chat offline?",
     "answer": "Execute npm run chat:offline com Ollama ativo."
+  },
+  {
+    "question": "Como iniciar um projeto Next.js com React?",
+    "answer": "Use npx create-next-app@latest meu-app, depois rode cd meu-app && npm run dev."
+  },
+  {
+    "question": "Qual comando Python para buscar dados no BigQuery?",
+    "answer": "Instale google-cloud-bigquery e use um script com Client().query('SELECT ...').result() para ler os registros."
+  },
+  {
+    "question": "Como ler documentos do Firestore com Python?",
+    "answer": "Instale google-cloud-firestore e use firestore.Client().collection('nome').stream() para iterar os documentos."
+  },
+  {
+    "question": "Como buscar no BigQuery e salvar no Firestore via Python?",
+    "answer": "Execute a query com BigQuery Client, converta cada linha em dict e grave no Firestore com collection('destino').document(id).set(dados)."
   }
 ]
