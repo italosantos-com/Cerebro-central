@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cérebro Central - Chat Adulto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'velvet-black': '#0a0a0a',
+              'velvet-dark': '#121212',
+              'velvet-card': '#1e1e1e',
+              'velvet-red': '#e11d48',
+              'velvet-red-hover': '#be123c',
+              'velvet-text': '#e5e5e5',
+              'velvet-muted': '#a3a3a3',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --color-velvet-black: #0a0a0a;
+        --color-velvet-dark: #121212;
+        --color-velvet-card: #1e1e1e;
+        --color-velvet-red: #e11d48;
+        --color-velvet-red-hover: #be123c;
+        --background-image: none;
+      }
+      
+      body {
+        background-color: var(--color-velvet-black);
+        background-image: var(--background-image);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      /* Dynamic color application */
+      .bg-velvet-black { background-color: var(--color-velvet-black) !important; }
+      .bg-velvet-dark { background-color: var(--color-velvet-dark) !important; }
+      .bg-velvet-card { background-color: var(--color-velvet-card) !important; }
+      .text-velvet-red, .bg-velvet-red { color: var(--color-velvet-red) !important; }
+      .bg-velvet-red { background-color: var(--color-velvet-red) !important; }
+      .hover\:bg-velvet-red-hover:hover { background-color: var(--color-velvet-red-hover) !important; }
+      .border-velvet-red { border-color: var(--color-velvet-red) !important; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "@google/genai": "https://esm.sh/@google/genai@1.20.0",
+        "lucide-react": "https://esm.sh/lucide-react@0.330.0"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-velvet-black text-velvet-text h-screen overflow-hidden selection:bg-velvet-red selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

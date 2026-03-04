@@ -1,0 +1,133 @@
+/* SYSTEM FONT */
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "SF Pro Display",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--ios-bg);
+  color: var(--ios-text);
+}
+
+/* ROOT TOKENS */
+:root {
+  --ios-bg: #f2f2f7;
+  --ios-card: #ffffff;
+  --ios-text: #000;
+  --ios-secondary: #3c3c43;
+  --ios-separator: #d1d1d6;
+  --ios-accent: #007aff;
+  --ios-radius: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ios-bg: #000;
+    --ios-card: #1c1c1e;
+    --ios-text: #fff;
+    --ios-secondary: #ebebf5;
+    --ios-separator: #3a3a3c;
+    --ios-accent: #0a84ff;
+  }
+}
+
+/* CARD */
+.ios-card {
+  background: var(--ios-card);
+  border-radius: var(--ios-radius);
+  padding: 20px;
+  border: 0.5px solid var(--ios-separator);
+  backdrop-filter: blur(30px);
+}
+
+/* BUTTON */
+.ios-button {
+  background: var(--ios-accent);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  border: none;
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+
+.ios-button:active {
+  transform: scale(.96);
+}
+
+/* SWITCH */
+.ios-switch {
+  width: 50px;
+  height: 30px;
+  border-radius: 20px;
+  background: #ccc;
+  position: relative;
+  transition: .3s;
+}
+
+.ios-switch.active {
+  background: var(--ios-accent);
+}
+
+.ios-switch::after {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+.ios-switch.active::after {
+  left: 22px;
+}
+
+/* TAB BAR */
+.ios-tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(30px);
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+/* ALERT */
+.ios-alert-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(20px);
+}
+
+.ios-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--ios-card);
+  padding: 25px;
+  border-radius: 24px;
+  width: 300px;
+  text-align: center;
+}
+
+/* BOTTOM SHEET */
+.ios-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--ios-card);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  padding: 20px;
+}

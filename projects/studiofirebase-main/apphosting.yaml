@@ -1,0 +1,29 @@
+# Este arquivo é obrigatório na raiz do projeto. 
+# Ele diz ao Google como construir sua aplicação e gerencia as variáveis de ambiente (segredos).
+
+serviceAccount: firebase-app-hosting-compute@projeto-italo-bc5ef.iam.gserviceaccount.com
+
+env:
+  - variable: NEXT_PUBLIC_URL
+    value: https://italosantos.com
+  - variable: NEXTAUTH_URL
+    value: https://italosantos.com
+  
+  # Segredos (Devem ser cadastrados no Google Cloud Secret Manager)
+  - variable: DATABASE_URL
+    secret: DATABASE_URL
+  - variable: NEXTAUTH_SECRET
+    secret: NEXTAUTH_SECRET
+  - variable: STRIPE_SECRET_KEY
+    secret: STRIPE_SECRET_KEY
+  - variable: META_CLIENT_SECRET
+    secret: META_CLIENT_SECRET
+  - variable: GOOGLE_CLIENT_SECRET
+    secret: GOOGLE_CLIENT_SECRET
+
+runConfig:
+  cpu: 2
+  memoryMiB: 2048 # Next.js precisa de memória
+  concurrency: 80
+  minInstances: 0 # 0 para economizar (cold start), 1 para performance
+  maxInstances: 10

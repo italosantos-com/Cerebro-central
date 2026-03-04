@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+conversations.json
+learning.json
+__pycache__/
+*.pyc
+vector_db/index.bin
+vector_db/docs.pkl
+vector_db/meta.json

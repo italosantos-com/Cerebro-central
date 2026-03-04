@@ -1,0 +1,26 @@
+{
+  "name": "offline-dev-assistant-inline",
+  "displayName": "Offline Dev Assistant Inline",
+  "description": "Autocomplete inline offline via local FastAPI + Ollama",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Offline Dev Assistant",
+      "properties": {
+        "offlineDevAssistant.backendUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8000",
+          "description": "URL do backend FastAPI local"
+        }
+      }
+    }
+  }
+}

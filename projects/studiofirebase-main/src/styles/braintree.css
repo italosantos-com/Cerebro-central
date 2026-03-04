@@ -1,0 +1,201 @@
+/* Estilos customizados para Braintree Drop-in UI */
+
+.braintree-dropin-container {
+  margin: 0 auto;
+}
+
+/* Customizar aparência do Drop-in */
+.braintree-dropin {
+  font-family: inherit !important;
+}
+
+/* Campos de input */
+.braintree-form__field {
+  margin-bottom: 1rem;
+}
+
+.braintree-form__field-group {
+  border-radius: 0.5rem;
+}
+
+/* Labels */
+.braintree-form__label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: hsl(var(--foreground));
+}
+
+/* Inputs */
+.braintree-form__hosted-field {
+  height: 2.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s;
+}
+
+.braintree-form__hosted-field:focus,
+.braintree-form__hosted-field.braintree-hosted-fields-focused {
+  border-color: hsl(var(--primary));
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.braintree-form__hosted-field.braintree-hosted-fields-invalid {
+  border-color: hsl(var(--destructive));
+}
+
+/* Mensagens de erro */
+.braintree-form__field-error {
+  color: hsl(var(--destructive));
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Botões de método de pagamento */
+.braintree-method {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background-color: hsl(var(--card));
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.braintree-method:hover {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--accent));
+}
+
+.braintree-method--active {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--accent));
+}
+
+/* Google Pay button */
+.braintree-google-pay-button,
+.gpay-button {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.75rem;
+}
+
+/* Apple Pay button */
+.braintree-apple-pay-button,
+.apple-pay-button {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.75rem;
+  -webkit-appearance: -apple-pay-button;
+  -apple-pay-button-style: black;
+}
+
+/* PayPal button */
+.braintree-paypal-button,
+.paypal-button {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 0.75rem;
+}
+
+/* Seção de cartão */
+.braintree-sheet {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: hsl(var(--card));
+}
+
+.braintree-sheet__header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: 1rem;
+}
+
+/* Toggle para mostrar/esconder métodos */
+.braintree-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: hsl(var(--primary));
+  font-weight: 500;
+}
+
+.braintree-toggle:hover {
+  text-decoration: underline;
+}
+
+/* Loading spinner */
+.braintree-loader__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.braintree-loader__indicator {
+  border-color: hsl(var(--primary));
+}
+
+/* Ícones de cartão */
+.braintree-option__logo {
+  height: 24px;
+  width: auto;
+}
+
+/* Método selecionado */
+.braintree-method--selected {
+  background-color: hsl(var(--accent));
+  border-color: hsl(var(--primary));
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .braintree-dropin-container {
+    padding: 0;
+  }
+
+  .braintree-sheet {
+    padding: 0.75rem;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .braintree-form__hosted-field {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .braintree-method {
+    background-color: hsl(var(--card));
+  }
+
+  .braintree-sheet {
+    background-color: hsl(var(--card));
+  }
+}
+
+/* Animações */
+.braintree-sheet--has-error {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* Mensagem de sucesso */
+.braintree-sheet--tokenized {
+  border-color: hsl(var(--success) / 0.5);
+  background-color: hsl(var(--success) / 0.1);
+}

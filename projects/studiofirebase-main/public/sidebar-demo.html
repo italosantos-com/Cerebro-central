@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sidebar - Before & After</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #3b82f6;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .sidebar-container {
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sidebar-container h2 {
+            background: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            font-size: 1.2rem;
+        }
+
+        /* OLD SIDEBAR STYLES */
+        .sidebar-old {
+            background: #000000;
+            height: 600px;
+            border-right: 1px solid #4b5563;
+        }
+
+        .sidebar-old .header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-bottom: 1px solid #4b5563;
+            font-weight: 600;
+        }
+
+        .sidebar-old .header svg {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+        }
+
+        .sidebar-old .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sidebar-old .menu-item:hover {
+            background: rgba(107, 114, 128, 0.3);
+            color: #ffffff;
+        }
+
+        .sidebar-old .menu-item.active {
+            background: #4b5563;
+            color: #ffffff;
+        }
+
+        .sidebar-old .menu-item svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .sidebar-old .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem;
+            border-top: 1px solid #4b5563;
+        }
+
+        .sidebar-old .logout-btn {
+            width: 100%;
+            padding: 0.5rem;
+            background: #4b5563;
+            border: none;
+            color: #ffffff;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        /* NEW SIDEBAR STYLES */
+        .sidebar-new {
+            background: #1a1a1a;
+            height: 600px;
+            border-right: 1px solid #333;
+        }
+
+        .sidebar-new .header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            font-weight: 600;
+        }
+
+        .sidebar-new .header svg {
+            width: 24px;
+            height: 24px;
+            color: #3b82f6;
+        }
+
+        .sidebar-new .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            color: #a1a1a1;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+            margin: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .sidebar-new .menu-item:hover {
+            background: rgba(59, 130, 246, 0.05);
+            color: #ffffff;
+        }
+
+        .sidebar-new .menu-item.active {
+            background: rgba(59, 130, 246, 0.1);
+            color: #ffffff;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .sidebar-new .menu-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .sidebar-new .menu-item.active svg {
+            stroke-width: 2.5;
+        }
+
+        .sidebar-new .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem;
+            border-top: 1px solid #333;
+        }
+
+        .sidebar-new .logout-btn {
+            width: 100%;
+            padding: 0.5rem;
+            background: #dc2626;
+            border: none;
+            color: #ffffff;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .sidebar-new .logout-btn:hover {
+            background: #b91c1c;
+        }
+
+        .changes-list {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+
+        .changes-list h2 {
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .changes-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .changes-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .changes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .changes-list li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Admin Sidebar Modernization - Before & After</h1>
+        
+        <div class="comparison">
+            <div class="sidebar-container">
+                <h2>❌ BEFORE (Old Design)</h2>
+                <div class="sidebar-old" style="position: relative;">
+                    <div class="header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                        </svg>
+                        <span>Admin Panel</span>
+                    </div>
+                    <div style="padding: 0.5rem;">
+                        <div class="menu-item active">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                            <span>Conversas</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Fotos</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Vídeos</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Configurações</span>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <button class="logout-btn">
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-container">
+                <h2>✨ AFTER (Modern Design)</h2>
+                <div class="sidebar-new" style="position: relative;">
+                    <div class="header">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                        </svg>
+                        <span>Admin Panel</span>
+                    </div>
+                    <div style="padding: 0.5rem;">
+                        <div class="menu-item active">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                            <span>Conversas</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Fotos</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <span>Vídeos</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Configurações</span>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <button class="logout-btn">
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="changes-list">
+            <h2>📋 Key Improvements Implemented</h2>
+            <ul>
+                <li><strong>Typography:</strong> Imported Inter font from Google Fonts for a modern, professional sans-serif appearance</li>
+                <li><strong>Background Color:</strong> Changed from pure black (#000000) to premium dark gray (#1a1a1a) for better depth perception</li>
+                <li><strong>Color Variables:</strong> Updated CSS custom properties to use modern blue accent (#3b82f6) instead of generic white</li>
+                <li><strong>Active State:</strong> Added gradient background (rgba(59, 130, 246, 0.1)) with left border accent (3px solid #3b82f6)</li>
+                <li><strong>Inactive Text:</strong> Changed to softer gray (#a1a1a1) for better visual hierarchy</li>
+                <li><strong>Icon Spacing:</strong> Increased gap between icons and text from 0.75rem to 1rem</li>
+                <li><strong>Icon Weight:</strong> Active items use stroke-width 2.5, inactive use 2.0 for better emphasis</li>
+                <li><strong>Font Weight:</strong> Menu items use font-medium (500) for improved readability</li>
+                <li><strong>Border:</strong> Added subtle sidebar border (#333) for visual separation</li>
+                <li><strong>Logout Button:</strong> Changed to destructive variant (red) to indicate exit action</li>
+                <li><strong>Hover States:</strong> Improved with smooth transitions and subtle background highlights</li>
+                <li><strong>Glassmorphism Support:</strong> Added CSS utilities for backdrop-filter effects</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

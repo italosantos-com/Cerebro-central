@@ -1,0 +1,113 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // ============================================================================
+    // 🗂️ ADMIN STORAGE STRUCTURE: admins/{adminUid}/**
+    // ============================================================================
+    // Cada admin tem sua própria pasta isolada com subcategorias:
+    // - photos/    : Fotos do perfil, capa, galeria
+    // - videos/    : Vídeos publicados
+    // - uploads/   : Uploads gerais e temporários
+    // - cache/     : Cache de dados (Twitter, Instagram, etc)
+    // - config/    : Configurações e metadados
+    
+    match /admins/{adminUid}/{allPaths=**} {
+      // ✅ LEITURA PÚBLICA: Qualquer um pode ver fotos e vídeos do admin
+      allow read: if true;
+      
+      // ✅ ESCRITA RESTRITA: Apenas o admin proprietário pode escrever
+      allow write: if request.auth != null && 
+                      request.auth.uid == adminUid &&
+                      request.auth.token.admin == true;
+    }
+    
+    // ============================================================================
+    // 🔒 LEGACY STORAGE (compatibilidade com estrutura antiga)
+    // ============================================================================
+    
+    // Pasta de uploads gerais (fotos, vídeos do admin)
+    match /uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Pasta de twitter photos (cache)
+    match /twitter-photos/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Pasta de fotos de usuários
+    match /user-photos/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Pasta de fotos de perfil (compatibilidade)
+    match /profile-photos/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Pasta de chat (mensagens secretas)
+    match /chat-files/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Pasta de mídia bloqueada para cobranças
+    match /charge-media/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Mídia protegida por compra individual
+    match /media/{ownerUid}/{fileName} {
+      function mediaId() {
+        return fileName.split('.')[0];
+      }
+
+      function accessDocPath() {
+        return /databases/(default)/documents/mediaAccess/$(request.auth.uid + "_" + mediaId());
+      }
+
+      function accessDoc() {
+        return get(accessDocPath());
+      }
+
+      allow read: if request.auth != null
+        && exists(accessDocPath())
+        && accessDoc().data.active == true
+        && (
+          accessDoc().data.plan == "lifetime"
+          ||
+          accessDoc().data.expiresAt > request.time
+        );
+
+      allow write: if request.auth != null
+        && request.auth.uid == ownerUid;
+    }
+    
+    // General uploads (compatibilidade)
+    match /general-uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Italosantos.com específicos
+    match /italosantos.com/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // ============================================================================
+    // 🚫 FALLBACK - NEGAR ACESSO AO RESTO
+    // ============================================================================
+    
+    match /{allPaths=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}

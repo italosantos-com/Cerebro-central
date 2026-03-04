@@ -1,0 +1,1364 @@
+@import '../styles/ios-subscription.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: var(--font-inter, ui-sans-serif), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    --app-text-color: #ffffff;
+    --app-number-color: #ffffff;
+    --app-button-color: #0a84ff;
+    --app-button-text-color: #ffffff;
+    --app-line-color: #333333;
+    --app-neon-color: #0a84ff;
+    --app-container-color: #1a1a1a;
+    --app-background-color: #121212;
+    --app-font-family: var(--font-sans);
+    --app-font-size: 16px;
+    --app-icon-color: currentColor;
+    --app-user-sidebar-icon-color: #ffffff;
+    --app-admin-sidebar-icon-color: #ffffff;
+    --app-secret-chat-color: #0a84ff;
+    --app-secret-chat-foreground: #ffffff;
+    --app-whatsapp-bubble-color: #25d366;
+    --app-whatsapp-bubble-foreground: #ffffff;
+    --app-cerebro-sidebar-color: #1e1e1e;
+    --app-logout-container-color: #1a1a1a;
+    --app-login-icon-color: currentColor;
+      --ios-header-bg: #e5e5ea;
+      --ios-header-border: #c7c7cc;
+  }
+}
+
+/* Estilos para o Quill Editor */
+.quill-editor-wrapper {
+  position: relative;
+}
+
+.quill-editor-wrapper .ql-container {
+  border: 2px solid #4b5563 !important;
+  border-radius: 0 0 0.5rem 0.5rem !important;
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  min-height: 350px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.quill-editor-wrapper .ql-toolbar {
+  border: 2px solid #4b5563 !important;
+  border-bottom: none !important;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+  background-color: #1f2937 !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-formats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  margin-right: 8px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-separator {
+  background-color: #4b5563 !important;
+  width: 1px !important;
+  height: 24px !important;
+  margin: 0 8px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar button {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 8px !important;
+  margin: 2px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.quill-editor-wrapper .ql-toolbar button::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 18px !important;
+  height: 18px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-stroke {
+  stroke: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-fill {
+  fill: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-bold svg,
+.quill-editor-wrapper .ql-toolbar .ql-italic svg,
+.quill-editor-wrapper .ql-toolbar .ql-underline svg,
+.quill-editor-wrapper .ql-toolbar .ql-strike svg,
+.quill-editor-wrapper .ql-toolbar .ql-list svg,
+.quill-editor-wrapper .ql-toolbar .ql-link svg,
+.quill-editor-wrapper .ql-toolbar .ql-image svg,
+.quill-editor-wrapper .ql-toolbar .ql-blockquote svg,
+.quill-editor-wrapper .ql-toolbar .ql-code-block svg,
+.quill-editor-wrapper .ql-toolbar .ql-clean svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-header svg {
+  width: 16px !important;
+  height: 16px !important;
+  display: block !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-color svg,
+.quill-editor-wrapper .ql-toolbar .ql-background svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-align svg {
+  width: 18px !important;
+  height: 18px !important;
+  display: block !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Estilos específicos para cada botão */
+.quill-editor-wrapper .ql-toolbar .ql-bold::before {
+  content: 'B' !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-italic::before {
+  content: 'I' !important;
+  font-style: italic !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-underline::before {
+  content: 'U' !important;
+  text-decoration: underline !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-strike::before {
+  content: 'S' !important;
+  text-decoration: line-through !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-list.ql-ordered::before {
+  content: '1.' !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-list.ql-bullet::before {
+  content: '•' !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-link::before {
+  content: '🔗' !important;
+  font-size: 14px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-image::before {
+  content: '🖼️' !important;
+  font-size: 14px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-blockquote::before {
+  content: '"' !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-code-block::before {
+  content: '</>' !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-clean::before {
+  content: 'Tₓ' !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-header.ql-picker::before {
+  content: 'H' !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-color::before {
+  content: 'A' !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-decoration-color: #ff6b6b !important;
+  text-decoration-thickness: 3px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-background::before {
+  content: 'A' !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-align.ql-picker::before {
+  content: '↔️' !important;
+  font-size: 14px !important;
+}
+
+/* Esconder ícones SVG originais */
+.quill-editor-wrapper .ql-toolbar button svg {
+  display: none !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker svg {
+  display: none !important;
+}
+
+/* Garantir que os ícones personalizados sejam visíveis */
+.quill-editor-wrapper .ql-toolbar button::before {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker {
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker-label {
+  color: #ffffff !important;
+  border: none !important;
+  padding: 8px 12px !important;
+  background-color: transparent !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker-options {
+  background-color: #1f2937 !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker-item {
+  color: #ffffff !important;
+  padding: 8px 12px !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker-item:hover {
+  background-color: #4b5563 !important;
+}
+
+.quill-editor-wrapper .ql-toolbar .ql-picker-item.ql-selected {
+  background-color: #60a5fa !important;
+  color: #000000 !important;
+}
+
+.quill-editor-wrapper .ql-toolbar button:hover {
+  background-color: #4b5563 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.quill-editor-wrapper .ql-toolbar button.ql-active {
+  background-color: #60a5fa !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 4px rgba(96, 165, 250, 0.3) !important;
+}
+
+.quill-editor-wrapper .ql-editor {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  padding: 20px !important;
+  line-height: 1.7 !important;
+  font-size: 16px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.quill-editor-wrapper .ql-editor p {
+  color: #f3f4f6 !important;
+  margin-bottom: 1.2em !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.quill-editor-wrapper .ql-editor h1,
+.quill-editor-wrapper .ql-editor h2,
+.quill-editor-wrapper .ql-editor h3 {
+  color: #60a5fa !important;
+  margin-bottom: 0.8em !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.quill-editor-wrapper .ql-editor strong {
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.quill-editor-wrapper .ql-editor em {
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-editor ul,
+.quill-editor-wrapper .ql-editor ol {
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-editor li {
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-editor blockquote {
+  border-left: 3px solid #6b7280 !important;
+  margin: 0 0 1em 0 !important;
+  padding-left: 1em !important;
+  color: #ffffff !important;
+}
+
+.quill-editor-wrapper .ql-editor a {
+  color: #60a5fa !important;
+}
+
+.quill-editor-wrapper .ql-editor a:hover {
+  color: #93c5fd !important;
+}
+
+/* Estilos para o TipTap Editor */
+.ProseMirror {
+  outline: none !important;
+  min-height: 300px !important;
+  padding: 1rem !important;
+  line-height: 1.6 !important;
+  font-size: 16px !important;
+}
+
+.ProseMirror p {
+  margin-bottom: 1rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3 {
+  color: hsl(var(--primary)) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.ProseMirror h1 {
+  font-size: 1.875rem !important;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem !important;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem !important;
+}
+
+.ProseMirror strong {
+  font-weight: 700 !important;
+  color: hsl(var(--primary) / 0.9) !important;
+}
+
+.ProseMirror em {
+  font-style: italic !important;
+}
+
+.ProseMirror u {
+  text-decoration: underline !important;
+}
+
+.ProseMirror s {
+  text-decoration: line-through !important;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  margin-bottom: 1rem !important;
+  padding-left: 1.5rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.25rem !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid hsl(var(--primary) / 0.5) !important;
+  padding-left: 1rem !important;
+  font-style: italic !important;
+  background-color: hsl(var(--primary) / 0.05) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0 0.25rem 0.25rem 0 !important;
+  margin: 1rem 0 !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.ProseMirror pre {
+  background-color: hsl(var(--muted)) !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+
+.ProseMirror code {
+  background-color: hsl(var(--muted)) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  font-family: monospace !important;
+  font-size: 0.875rem !important;
+}
+
+.ProseMirror a {
+  color: hsl(var(--primary)) !important;
+  text-decoration: underline !important;
+}
+
+.ProseMirror a:hover {
+  color: hsl(var(--primary) / 0.8) !important;
+}
+
+.ProseMirror img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 0.5rem !important;
+  margin: 1rem 0 !important;
+}
+
+/* Placeholder */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
+
+/* Estilos para HTML renderizado na seção Sobre */
+.prose h1 {
+  color: hsl(var(--primary)) !important;
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.prose h1:first-child {
+  margin-top: 0 !important;
+}
+
+.prose h2 {
+  color: hsl(var(--primary) / 0.9) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  margin-top: 1.25rem !important;
+}
+
+.prose h3 {
+  color: hsl(var(--primary) / 0.8) !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 1rem !important;
+}
+
+.prose p {
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.prose ul {
+  list-style-type: disc !important;
+  list-style-position: inside !important;
+  margin-bottom: 1rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.prose li {
+  margin-left: 1rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.prose strong {
+  font-weight: 700 !important;
+  color: hsl(var(--primary) / 0.9) !important;
+}
+
+.prose em {
+  font-style: italic !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.prose blockquote {
+  border-left: 4px solid hsl(var(--primary) / 0.5) !important;
+  padding-left: 1rem !important;
+  font-style: italic !important;
+  background-color: hsl(var(--primary) / 0.05) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0 0.25rem 0.25rem 0 !important;
+  margin: 1rem 0 !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.prose hr {
+  border-color: hsl(var(--primary) / 0.3) !important;
+  margin: 1.5rem 0 !important;
+}
+
+@layer base {
+  :root {
+    /* ===== BLACK & SILVER PREMIUM SYSTEM ===== */
+    
+    /* FUNDAÇÃO: Tons de Carbono e Obsidiana */
+    --background: 225 15% 4%;
+    /* #090a0c - Carbono Profundo (Fundo de Luxo) */
+    --foreground: 210 20% 98%;
+    /* Off-white Frio para evitar fadiga ocular */
+
+    /* SUPERFÍCIES: Elevação e Profundidade */
+    --card: 225 12% 8%;
+    /* #12141a - Obsidian Surface */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 225 12% 7%;
+    /* Ligeiramente mais claro que o card */
+    --popover-foreground: 210 20% 98%;
+
+    /* PRIMÁRIO: Prata Acetinado (O Metal Principal) */
+    --primary: 220 13% 75%;
+    /* #bdc1ca - Prata Base Acetinada */
+    --primary-foreground: 225 15% 4%;
+    /* Texto escuro sobre prata */
+    --primary-hover: 210 25% 90%;
+    /* #e2e6f0 - Prata Brilhante no hover */
+
+    /* SECUNDÁRIO: Grafite Polido */
+    --secondary: 225 10% 20%;
+    /* #2d3039 - Graphite */
+    --secondary-foreground: 210 20% 98%;
+
+    /* TEXTOS E ESTADOS MUDOS: Cinza Metalizado */
+    --muted: 225 12% 12%;
+    /* #1a1c22 */
+    --muted-foreground: 220 10% 60%;
+    /* Cinza médio metálico para labels */
+
+    /* ACENTO: Prata Mercurial (Destaques High-End) */
+    --accent: 210 25% 90%;
+    /* #e2e6f0 - Brilho Metálico */
+    --accent-foreground: 225 15% 4%;
+
+    --accent-shadow: 220 13% 50%;
+    /* Sombra prateada */
+
+    /* SEMÂNTICOS: Dessaturados para Black Premium */
+    --destructive: 0 60% 45%;
+    /* Vermelho sangue seco (mais luxuoso) */
+    --destructive-foreground: 210 20% 98%;
+
+    /* BORDAS E DIVISORES: O "Fio de Prata" */
+    --border: 225 10% 15%;
+    /* #24272e - Divisores quase invisíveis */
+    --input: 225 10% 15%;
+    --ring: 220 13% 75%;
+    /* Ring prateado no foco */
+
+    /* SIDEBAR & NAVIGATION: Estilo Industrial/Luxo */
+    --sidebar-background: 225 15% 6%;
+    /* #0e1014 */
+    --sidebar-foreground: 220 10% 70%;
+    --sidebar-primary: 210 25% 90%;
+    /* Prata vivo para item ativo */
+    --sidebar-primary-foreground: 225 15% 4%;
+    --sidebar-accent: 225 10% 15%;
+    /* Hover sutil */
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 225 10% 12%;
+    --sidebar-ring: 220 13% 75%;
+    /* Ring prateado */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* DARK MODE: Same as root (full black & silver) */
+    --background: 225 15% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 225 12% 8%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 225 12% 7%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 220 13% 75%;
+    --primary-foreground: 225 15% 4%;
+    --primary-hover: 210 25% 90%;
+
+    --secondary: 225 10% 20%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 225 12% 12%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 210 25% 90%;
+    --accent-foreground: 225 15% 4%;
+
+    --accent-shadow: 0 0% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 75%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 30%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: var(--app-font-size, 16px);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--app-font-family, var(--font-sans));
+  }
+}
+
+.lucide {
+  color: var(--app-icon-color, currentColor);
+}
+
+@layer utilities {
+  .animate-gradient-bg {
+    animation: gradient-bg 8s ease infinite;
+  }
+
+  @keyframes gradient-bg {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Glass morphism effects - Enhanced for modern realistic design */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: hsla(var(--background) / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .safari-nav-header {
+    background: linear-gradient(135deg, hsl(var(--sidebar-background)) 0%, color-mix(in srgb, hsl(var(--sidebar-background)) 90%, hsl(var(--card)) 10%) 100%);
+    backdrop-filter: blur(24px) saturate(1.15);
+    -webkit-backdrop-filter: blur(24px) saturate(1.15);
+    border-bottom: 1px solid hsl(var(--sidebar-border));
+  }
+
+  .glass-sidebar {
+    background: linear-gradient(135deg, hsl(var(--sidebar-background)) 0%, color-mix(in srgb, hsl(var(--sidebar-background)) 90%, hsl(var(--card)) 10%) 100%);
+    backdrop-filter: blur(24px) saturate(1.15);
+    -webkit-backdrop-filter: blur(24px) saturate(1.15);
+    border-right: 1px solid hsl(var(--sidebar-border));
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Menu item active gradient background */
+  .menu-item-active {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+    color: hsl(var(--sidebar-accent-foreground));
+    border-left: 3px solid hsl(var(--sidebar-primary));
+    font-weight: 600;
+    box-shadow: 
+      0 1px 2px 0 rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(59, 130, 246, 0.1);
+  }
+
+  /* Menu item inactive state */
+  .menu-item-inactive {
+    color: hsl(var(--sidebar-foreground));
+    border-left: 3px solid transparent;
+  }
+
+  .menu-item-inactive:hover {
+    color: hsl(var(--sidebar-accent-foreground));
+    background: linear-gradient(90deg, hsla(var(--sidebar-accent) / 0.08) 0%, transparent 100%);
+    border-left: 3px solid hsla(var(--sidebar-primary) / 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Active menu item glow effect */
+  .active-menu-glow {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Custom scrollbar - Enhanced visibility and harmony */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin: 4px 0;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsla(var(--sidebar-accent) / 0.35);
+    border-radius: 4px;
+    border: 1px solid hsla(var(--sidebar-accent) / 0.2);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsla(var(--sidebar-accent) / 0.55);
+    border-color: hsla(var(--sidebar-accent) / 0.3);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: hsla(var(--sidebar-accent) / 0.65);
+  }
+
+  /* iOS-native shadow effects - Subtle and clean
+   * Note: Class names preserved for backward compatibility but now use iOS-native shadows
+   * instead of neon glows to match Apple Human Interface Guidelines
+   */
+  .shadow-neon-white {
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .text-shadow-neon-white {
+    text-shadow: none;
+  }
+
+  /* iOS subtle elevation shadows */
+  .shadow-neon-red-light {
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-neon-red-strong {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.16),
+      0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Text shadows removed - not part of iOS design language */
+  .text-shadow-neon-red-light {
+    text-shadow: none;
+  }
+
+  .text-shadow-neon-red {
+    text-shadow: none;
+  }
+
+  /* iOS-style hover - Subtle elevation increase */
+  .shadow-neon-white:hover {
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-neon-red-light:hover {
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-secret-chat {
+    box-shadow:
+      0 0 12px color-mix(in srgb, var(--app-secret-chat-color) 80%, transparent),
+      0 0 24px color-mix(in srgb, var(--app-secret-chat-color) 60%, transparent);
+  }
+
+  .whatsapp-bubble {
+    background: var(--app-whatsapp-bubble-color);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--app-whatsapp-bubble-color) 20%, transparent),
+      0 0 18px color-mix(in srgb, var(--app-whatsapp-bubble-color) 55%, transparent),
+      0 14px 34px -16px color-mix(in srgb, var(--app-whatsapp-bubble-color) 30%, transparent);
+  }
+
+  .whatsapp-bubble:hover {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--app-whatsapp-bubble-color) 28%, transparent),
+      0 0 28px color-mix(in srgb, var(--app-whatsapp-bubble-color) 78%, transparent),
+      0 18px 44px -18px color-mix(in srgb, var(--app-whatsapp-bubble-color) 40%, transparent);
+  }
+
+  .whatsapp-bubble-glow {
+    background: color-mix(in srgb, var(--app-whatsapp-bubble-color) 35%, transparent);
+  }
+
+  .whatsapp-bubble-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--app-whatsapp-bubble-color) 35%, transparent),
+      0 0 24px color-mix(in srgb, var(--app-whatsapp-bubble-color) 70%, transparent),
+      0 0 54px color-mix(in srgb, var(--app-whatsapp-bubble-color) 35%, transparent);
+  }
+
+  /* iOS-native container styles */
+  .ios-container {
+    background: var(--app-container-color);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.16),
+      0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .ios-card {
+    background: var(--app-container-color);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .ios-card:hover {
+    border-color: rgba(10, 132, 255, 0.3);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* iOS-native button shadow */
+  .ios-button-shadow {
+    box-shadow: 0 2px 8px rgba(10, 132, 255, 0.2);
+  }
+
+  .ios-button-shadow:hover {
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
+  }
+
+  /* iOS-native focus ring */
+  .ios-focus-ring:focus-visible {
+    outline: 2px solid #0a84ff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.15);
+  }
+
+  /* Disable neon effects when iOS theme is active */
+  [data-theme="ios"] .shadow-neon-white,
+  [data-theme="ios"] .shadow-neon-red-light,
+  [data-theme="ios"] .shadow-neon-red-strong {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  [data-theme="ios"] .shadow-neon-white:hover,
+  [data-theme="ios"] .shadow-neon-red-light:hover,
+  [data-theme="ios"] .shadow-neon-red-strong:hover {
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  [data-theme="ios"] .text-shadow-neon-white,
+  [data-theme="ios"] .text-shadow-neon-red-light,
+  [data-theme="ios"] .text-shadow-neon-red,
+  [data-theme="ios"] .text-shadow-neon-red-strong {
+    text-shadow: none;
+  }
+
+  [data-theme="ios"] .safari-nav-header {
+    background: var(--ios-header-bg);
+    border-bottom: 1px solid var(--ios-header-border);
+    backdrop-filter: blur(20px) saturate(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  }
+
+  [data-theme="ios"] .safari-nav-header.safari-nav-header-admin-colors {
+    background: linear-gradient(135deg, hsl(var(--sidebar-background)) 0%, color-mix(in srgb, hsl(var(--sidebar-background)) 90%, hsl(var(--card)) 10%) 100%);
+    border-bottom: 1px solid hsl(var(--sidebar-border));
+    backdrop-filter: blur(24px) saturate(1.15);
+    -webkit-backdrop-filter: blur(24px) saturate(1.15);
+  
+
+  /* Disable secret chat glow effect for iOS theme */
+  [data-theme="ios"] .shadow-secret-chat {
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Simplify WhatsApp bubble for iOS theme */
+  [data-theme="ios"] .whatsapp-bubble {
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  [data-theme="ios"] .whatsapp-bubble:hover {
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="ios"] .whatsapp-bubble-glow {
+    background: transparent;
+  }
+
+  [data-theme="ios"] .whatsapp-bubble-ring {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* iOS Settings.app STYLES */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+.ios-page {
+  background: #f2f2f7;
+  min-height: 100vh;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+}
+
+.ios-page-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding: 0 16px;
+  color: #000;
+}
+
+.ios-section {
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.ios-section-title {
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8e8e93;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #f2f2f7;
+}
+
+.ios-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ios-item,
+.ios-row {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5ea;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ios-item:last-child,
+.ios-row:last-child {
+  border-bottom: none;
+}
+
+.ios-item:active,
+.ios-item:hover {
+  background: #f2f2f7;
+}
+
+.ios-item-active {
+  font-weight: 600;
+  color: #0a84ff;
+}
+
+.ios-item-action {
+  justify-content: center;
+  color: #0a84ff;
+  font-weight: 600;
+}
+
+.ios-item-action:active {
+  background: #f2f2f7;
+}
+
+.ios-item-success {
+  color: #34c759;
+}
+
+.ios-label {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.ios-value {
+  font-size: 16px;
+  color: #8e8e93;
+  font-weight: 400;
+}
+
+.ios-checkmark {
+  color: #0a84ff;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.ios-input-wrapper {
+  padding: 0;
+}
+
+.ios-date-input,
+.ios-select {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background: #fff;
+  font-size: 16px;
+  color: #000;
+  font-family: inherit;
+  appearance: none;
+  border-bottom: 1px solid #e5e5ea;
+}
+
+.ios-date-input:last-child,
+.ios-select:last-child {
+  border-bottom: none;
+}
+
+.ios-date-input:focus,
+.ios-select:focus {
+  outline: none;
+  background: #f9f9f9;
+}
+
+.ios-picker-trigger {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background: #fff;
+  border-bottom: 1px solid #e5e5ea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+
+.ios-picker-trigger:active {
+  background: #f2f2f7;
+}
+
+.ios-wheel-container {
+  padding: 16px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5ea;
+}
+
+.ios-wheel {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.ios-wheel-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ios-wheel-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e8e93;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ios-wheel-column select {
+  padding: 8px;
+  border: 1px solid #e5e5ea;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+}
+
+.ios-wheel-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.ios-button-cancel,
+.ios-button-confirm {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ios-button-cancel {
+  background: #e5e5ea;
+  color: #000;
+}
+
+.ios-button-cancel:active {
+  background: #d1d1d6;
+}
+
+.ios-button-confirm {
+  background: #0a84ff;
+  color: #fff;
+}
+
+.ios-button-confirm:active {
+  background: #0066cc;
+}
+
+.ios-button-primary {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 8px;
+  background: #0a84ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ios-button-primary:active {
+  background: #0066cc;
+}
+
+.ios-button-primary:disabled,
+.ios-button-primary.ios-button-loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ios-alert {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #8e8e93;
+  font-size: 16px;
+}
+
+.ios-footer {
+  text-align: center;
+  padding: 16px;
+  color: #8e8e93;
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+.ios-footer-small {
+  font-size: 11px;
+  color: #c7c7cc;
+  margin-top: 4px;
+}
+
+/* ============================================================================
+   MODAL & DIALOG CONTRAST FIXES
+   ============================================================================ */
+
+/* Ensure all text in dialogs has proper color contrast */
+[role="dialog"],
+.radix-dialog-content,
+[data-state="open"] {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Dialog header and title styling */
+[role="dialog"] h1,
+[role="dialog"] h2,
+[role="dialog"] h3,
+[data-radix-dialog-title] {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 600 !important;
+}
+
+/* Dialog labels and text */
+[role="dialog"] label,
+[data-radix-dialog-description],
+.dialog-description {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Input fields in dialogs */
+[role="dialog"] input,
+[role="dialog"] textarea,
+[role="dialog"] select {
+  background-color: hsl(var(--input)) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+[role="dialog"] input::placeholder,
+[role="dialog"] textarea::placeholder {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Dialog buttons and interactive elements */
+[role="dialog"] button {
+  color: hsl(var(--foreground)) !important;
+}
+}

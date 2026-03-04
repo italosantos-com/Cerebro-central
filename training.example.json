@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Como criar rota no Express?",
+    "answer": "Use app.get('/rota', handler)."
+  },
+  {
+    "question": "Como testar API local?",
+    "answer": "Use curl em localhost com endpoint e payload JSON."
+  },
+  {
+    "question": "Como rodar o chat offline?",
+    "answer": "Execute npm run chat:offline com Ollama ativo."
+  }
+]

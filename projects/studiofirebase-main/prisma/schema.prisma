@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  userId     String
+  channel    String
+  externalId String?
+  sender     String
+  recipient  String?
+  text       String?
+  timestamp  DateTime @default(now())
+  read       Boolean  @default(false)
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId, channel, sender, recipient])
+  @@index([channel, timestamp])
+}
+
+model SocialChannelBinding {
+  id            String   @id @default(cuid())
+  userId        String
+  channel       String
+  externalId    String?
+  accessToken   String?
+  refreshToken  String?
+  username      String?
+  pageId        String?
+  phoneNumberId String?
+  expiresAt     DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([userId, channel, externalId])
+}
+
+model Subscription {
+  id                String    @id @default(cuid())
+  userId            String
+  email             String
+  stripeCustomerId  String?
+  stripeSubscriptionId String? @unique
+  status            String    // active, canceled, past_due, trialing
+  planId            String?
+  planName          String?
+  currentPeriodStart DateTime?
+  currentPeriodEnd   DateTime?
+  cancelAtPeriodEnd  Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  youtubeAccess     YouTubePrivateVideoAccess[]
+
+  @@index([userId])
+  @@index([email])
+  @@index([status])
+}
+
+model YouTubePrivateVideoAccess {
+  id             String       @id @default(cuid())
+  email          String
+  userId         String?
+  subscriptionId String?
+  isActive       Boolean      @default(true)
+  accessLevel    String       @default("adult18plus") // adult18plus, premium, etc
+  grantedAt      DateTime     @default(now())
+  revokedAt      DateTime?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  subscription   Subscription? @relation(fields: [subscriptionId], references: [id])
+
+  @@unique([email, accessLevel])
+  @@index([email])
+  @@index([isActive])
+}

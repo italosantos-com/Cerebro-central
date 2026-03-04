@@ -1,0 +1,21 @@
+# Firewall Allowlist Configuration for GitHub Copilot Coding Agent
+
+# This file documents the domains that should be added to the allowlist
+# in the repository's Copilot coding agent settings to avoid firewall restrictions.
+
+# Configuration Path:
+# https://github.com/studiofirebase/studiofirebase/settings/copilot/coding_agent
+
+# Required Domains for Google Fonts:
+fonts.googleapis.com
+# Optional (if font files are loaded directly):
+# fonts.gstatic.com
+
+# Instructions:
+# 1. Go to: https://github.com/studiofirebase/studiofirebase/settings/copilot/coding_agent
+# 2. Navigate to the "Firewall" or "Allowlist" section
+# 3. Add the domains listed above to the custom allowlist
+# 4. Save the changes
+
+# Alternatively, use the setup.sh script which pre-fetches these resources
+# before the firewall is enabled, eliminating the need for allowlist entries.

@@ -1,0 +1,137 @@
+{
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    },
+    "rewrites": [
+      {
+        "source": "/_/auth/action",
+        "destination": "/auth/action"
+      }
+    ]
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "us-central1",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9090,
+      "host": "127.0.0.1"
+    },
+    "firestore": {
+      "port": 8081,
+      "host": "127.0.0.1"
+    },
+    "functions": {
+      "port": 5001,
+      "host": "127.0.0.1"
+    },
+    "hosting": {
+      "port": 5003,
+      "host": "127.0.0.1"
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4001,
+      "host": "127.0.0.1"
+    },
+    "singleProjectMode": true,
+    "storage": {
+      "port": 9198,
+      "host": "127.0.0.1"
+    },
+    "database": {
+      "port": 9001,
+      "host": "127.0.0.1"
+    },
+    "dataconnect": {
+      "dataDir": "dataconnect/.dataconnect/pgliteData",
+      "port": 9398,
+      "host": "127.0.0.1"
+    },
+    "apphosting": {
+      "port": 5004,
+      "rootDirectory": "./",
+      "startCommand": "npm run dev",
+      "host": "127.0.0.1"
+    }
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "apphosting": [
+    {
+      "backendId": "italosantos",
+      "rootDir": ".",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "functions"
+      ],
+      "alwaysDeployFromSource": true
+    },
+    {
+      "backendId": "studiofirebase",
+      "rootDir": "italo",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "functions"
+      ],
+      "alwaysDeployFromSource": true
+    }
+  ],
+  "dataconnect": {
+    "source": "dataconnect"
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  },
+  "extensions": {
+    "firestore-genai-chatbot": "googlecloud/firestore-genai-chatbot@0.0.17",
+    "firestore-send-email": "firebase/firestore-send-email@0.2.4",
+    "firestore-translate-text": "firebase/firestore-translate-text@0.1.25",
+    "firestore-user-document": "rowy/firestore-user-document@0.0.6"
+  },
+  "functions": [
+    {
+      "codebase": "default",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ],
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "source": "functions"
+    },
+    {
+      "source": "italo",
+      "codebase": "italo",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}

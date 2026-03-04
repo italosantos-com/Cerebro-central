@@ -1,0 +1,144 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/.prisma/client"
+}
+
+// === ENUMS ===
+enum Role {
+  USER
+  ADMIN
+  SELLER
+}
+
+enum SocialProvider {
+  INSTAGRAM
+  FACEBOOK
+  TWITTER
+  WHATSAPP
+}
+
+// === USUÁRIOS & VENDEDORES ===
+model User {
+  id     String   @id @default(cuid())
+  name   String?
+  email  String   @unique
+  image  String?
+  role   Role     @default(USER)
+  seller Seller?  // Se for vendedor, tem um perfil de loja
+
+  accounts Account[] // NextAuth (Login Social)
+  sessions Session[]
+}
+
+model Seller {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  storeName       String
+  isHomepageAdmin Boolean  @default(false)
+
+  // Integrações de Pagamento
+  mpAccessToken    String? @db.Text
+  mpUserId         String?
+  mpQrCodeUrl      String?
+  paypalMerchantId String?
+  stripeConnectId  String?
+
+  // Relacionamentos
+  user              User               @relation(fields: [userId], references: [id])
+  socialConnections SocialConnection[]
+  conversations     Conversation[]
+  products          Product[]
+}
+
+// === AUTENTICAÇÃO (NextAuth) ===
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
+// === INTEGRAÇÕES SOCIAIS (Tokens) ===
+model SocialConnection {
+  id           String         @id @default(uuid())
+  sellerId     String
+  provider     SocialProvider
+  accessToken  String         @db.Text
+  refreshToken String?        @db.Text
+  socialId     String         // ID da Página/User na rede
+  seller       Seller         @relation(fields: [sellerId], references: [id])
+  @@unique([sellerId, provider])
+}
+
+// === CHAT UNIFICADO ===
+model Conversation {
+  id             String   @id @default(uuid())
+  sellerId       String
+  platform       SocialProvider
+  externalChatId String   // ID do cliente na rede externa
+  customerName   String?
+  messages       Message[]
+  seller         Seller   @relation(fields: [sellerId], references: [id])
+  @@unique([sellerId, platform, externalChatId])
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  content        String       @db.Text
+  isFromMe       Boolean
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+}
+
+// === PRODUTOS & PEDIDOS ===
+model Product {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  price       Float
+  sellerId    String
+  seller      Seller      @relation(fields: [sellerId], references: [id])
+  orderItems  OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float
+}
+
+model Order {
+  id     String      @id @default(cuid())
+  userId String
+  total  Float
+  items  OrderItem[]
+}

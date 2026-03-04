@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mail Alterado - %APP_NAME%</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #ff8800 0%, #cc6600 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .action-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #ff8800 0%, #cc6600 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 0 20px rgba(255, 136, 0, 0.6);
+        }
+        .alternative-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888888;
+        }
+        .alternative-link a {
+            color: #ff8800;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 165, 0, 0.2);
+            color: #666666;
+            font-size: 14px;
+        }
+        .warning {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid #ff8800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-shadow: 0 0 30px rgba(255, 136, 0, 1);
+        }
+        .email-change-box {
+            background: rgba(255, 165, 0, 0.1);
+            border: 2px solid rgba(255, 165, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0a; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <div class="email-container">
+                    <div class="header">
+                        <div class="logo">IS</div>
+                        <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">%APP_NAME%</p>
+                    </div>
+
+                    <div class="content">
+                        <div class="greeting">Olá, %DISPLAY_NAME%! 📧</div>
+                        
+                        <div class="message">
+                            <p><strong>Importante:</strong> O endereço de e-mail da sua conta no <strong>%APP_NAME%</strong> foi alterado.</p>
+                        </div>
+
+                        <div class="email-change-box">
+                            <p style="margin: 0 0 15px 0; color: #888888; font-size: 14px;">
+                                <span style="display: inline-block; width: 100%;">📨 E-mail anterior:</span>
+                                <span style="color: #aaaaaa; font-size: 16px;">%EMAIL%</span>
+                            </p>
+                            <p style="margin: 0; border-top: 1px solid rgba(255, 165, 0, 0.2); padding-top: 15px;">
+                                <span style="display: inline-block; width: 100%; color: #888888; font-size: 14px; margin-bottom: 5px;">✅ Novo e-mail de login:</span>
+                                <span style="color: #ff8800; font-size: 20px; fot-weight: bold;">%NEW_EMAIL%</span>
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(0, 255, 0, 0.1); border-left: 4px solid #00ff00; padding: 15px; margin: 20px 0; border-radius: 4px;">
+                            <p style="margin: 0; font-size: 14px;">
+                                <strong>✓ Você solicitou esta alteração?</strong>
+                                <br>Perfeito! Não é necessário fazer nada. A partir de agora, use o novo e-mail para fazer login.
+                            </p>
+                        </div>
+
+                        <div class="warning">
+                            <p style="margin: 0 0 15px 0; font-size: 15px;"><strong>⚠️ VOCÊ NÃO RECONHECE ESTA ALTERAÇÃO?</strong></p>
+                            <p style="margin: 0; font-size: 14px;">
+                                Se você <strong>não solicitou</strong> esta alteração, sua conta pode estar comprometida! 
+                                <br><br>
+                                <strong>Aja imediatamente:</strong> Clique no botão abaixo para <strong>reverter</strong> a alteração e restaurar seu e-mail anterior. Depois, altere sua senha por segurança.
+                            </p>
+                        </div>
+
+                        <div class="button-container">
+                            <a href="%LINK%" class="action-button">🔄 Reverter para E-mail Anterior</a>
+                        </div>
+
+                        <div class="alternative-link">
+                            <p>Caso o botão não funcione, copie e cole este link no seu navegador:</p>
+                            <a href="%LINK%" style="word-break: break-all;">%LINK%</a>
+                        </div>
+
+                        <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px;">
+                            <p style="margin: 0 0 10px 0; font-size: 14px; color: #cccccc;"><strong>🛡️ Informações de Segurança:</strong></p>
+                            <ul style="margin: 0; padding-left: 20px; color: #aaaaaa; font-size: 13px;">
+                                <li>Este link de reversão expira em <strong>24 horas</strong></li>
+                                <li>Você receberá este e-mail em <strong>ambos</strong> os endereços (antigo e novo)</li>
+                                <li>Após 24h, a alteração será permanente</li>
+                                <li>Se suspeitar de atividade não autorizada, altere sua senha imediatamente</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <p>Este é um e-mail automático, por favor não responda.</p>
+                        <p>&copy; 2025 %APP_NAME%. Todos os direitos reservados.</p>
+                        <p style="margin-top: 20px;">
+                            <a href="https://italosantos.com" style="color: #ff8800; text-decoration: none;">italosantos.com</a>
+                        </p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
