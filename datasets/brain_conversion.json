@@ -1,0 +1,48 @@
+[
+  {
+    "id": "conv_001",
+    "stage": "preco",
+    "trigger_examples": [
+      "Quanto é 1 hora?",
+      "Qual o valor?",
+      "Quanto custa?",
+      "Me fala o preço"
+    ],
+    "best_response": "O valor é X e inclui atendimento reservado com total discrição.",
+    "conversion_rate": 0.78
+  },
+  {
+    "id": "conv_002",
+    "stage": "urgencia",
+    "trigger_examples": [
+      "Tem horário agora?",
+      "Está disponível hoje?",
+      "Pode ser hoje?"
+    ],
+    "best_response": "Tenho sim, mas a agenda fecha rápido. Quer garantir o seu horário?",
+    "conversion_rate": 0.82
+  },
+  {
+    "id": "conv_003",
+    "stage": "interesse",
+    "trigger_examples": [
+      "Como funciona?",
+      "Me conta mais",
+      "O que você oferece?"
+    ],
+    "best_response": "Ofereço um atendimento exclusivo e reservado. Me conta o que você está buscando para eu te orientar melhor.",
+    "conversion_rate": 0.55
+  },
+  {
+    "id": "conv_004",
+    "stage": "fechamento",
+    "trigger_examples": [
+      "Vou fechar",
+      "Pode ser",
+      "Topo",
+      "Quero marcar"
+    ],
+    "best_response": "Ótimo! Para confirmar, o pagamento é antecipado via PIX ou cartão. Posso te enviar os dados?",
+    "conversion_rate": 0.91
+  }
+]
